@@ -18,7 +18,7 @@ const questionsData = [
     {
         "image": "resimler/resim4.png",
         "correct": "phishing",
-        "explanation": "Burada dolandırıcılar, dolandırıldığını iddia ederek hedef kişiyi kandırmaya çalışıyor. Hedefini iletişimidevam ettirmek için telefon numarsı vererek sömürmeye çalışılıyor"
+        "explanation": "Burada dolandırıcılar, kullanıcıları kandırıp harakete geçmeye teşvik etmek için yaygın olarak kullanılan bir tekniğe başvurmuş ve durumun aciliyetini vurgulamaış. Hedefini iletişimidevam ettirmek için telefon numarsı vererek sömürmeye çalışılıyor"
     },
     {
         "image": "resimler/resim5.png",

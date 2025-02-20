@@ -65,16 +65,16 @@ const questionsData = [
         "correct": "phishing",
         "explanation": "Burda saldırgan sizin hesabınızdan para çıkışı olucak iddası ile karşı tarafı korkutarak E-postadaki bağlantıya tıklamamak ve kişisel bilgilerinizi çalmaya çalışıyor.."
     },
-    {
-        "image": "resimler/resim14.png",
-        "correct": "phishing",
-        "explanation": "Selamlama geneldir. Bir devlet gelir kurumu, bir e-postada asla geri ödeme tutarı gibi belirli bir bilgi vermez. Ayrıca, mesajın altındaki URL'de yer alan alan adı gönderenin adından farklıdır ve herhangi bir ek iletişim bilgisi verilmemiştir."
-    },
-    {
-        "image": "resimler/resim15.png",
-        "correct": "phishing",
-        "explanation": "E-postanın göndericisi kuruluşunuzla ilgili değil. Dikkat ederseniz bağlantının üzerinde ki adresin doğru yönlendirmemektedir. Verilen talimatları izleyip formu doldurursanız, kullanıcı kimliğiniz ve şifreniz gibi bilgileri bir siber suçluya ifşa etmiş olursunuz."
-    },
+    // {
+    //     "image": "resimler/resim14.png",
+    //     "correct": "phishing",
+    //     "explanation": "Selamlama geneldir. Bir devlet gelir kurumu, bir e-postada asla geri ödeme tutarı gibi belirli bir bilgi vermez. Ayrıca, mesajın altındaki URL'de yer alan alan adı gönderenin adından farklıdır ve herhangi bir ek iletişim bilgisi verilmemiştir."
+    // },
+    // {
+    //     "image": "resimler/resim15.png",
+    //     "correct": "phishing",
+    //     "explanation": "E-postanın göndericisi kuruluşunuzla ilgili değil. Dikkat ederseniz bağlantının üzerinde ki adresin doğru yönlendirmemektedir. Verilen talimatları izleyip formu doldurursanız, kullanıcı kimliğiniz ve şifreniz gibi bilgileri bir siber suçluya ifşa etmiş olursunuz."
+    // },
     {
         "image": "resimler/resim16.png",
         "correct": "real",
@@ -88,7 +88,7 @@ const questionsData = [
     {
         "image": "resimler/resim18.png",
         "correct": "phishing",
-        "explanation": "Dikatt ederseniz gönderici adresi 'akbonk-guvenlik.com' (Akbank değil) ve size bir aciliyet oluşturan, korku ve endişeye yönelik bir mesaj barındırmış bu şekilde sizde o an hem linke tıklayıp hesap bilgilerinizi verebilirsiniz."
+        "explanation": "Dikkat ederseniz gönderici adresi 'akbonk-guvenlik.com' (Akbank değil) ve size bir aciliyet oluşturan, korku ve endişeye yönelik bir mesaj barındırmış bu şekilde sizde o an hem linke tıklayıp hesap bilgilerinizi verebilirsiniz."
     },
     {
         "image": "resimler/resim19.png",
@@ -115,11 +115,11 @@ const questionsData = [
         "correct": "phishing",
         "explanation": "Bankalar genellikle SMS ile şifre sıfırlama bağlantısı göndermez, Acil eylem gerektiren tehdit içerikli mesaj bulunmakta ve  Şüpheli domain uzantısı (.xyz) bulunuyor sahte bir domaindir."
     },
-    {
-        "image": "resimler/resim24.png",
-        "correct": "phishing",
-        "explanation": "Bankanız limit değişikliklerini SMS üzerinden onaylatmaz. Görünürde doğru domain (akbank.com.tr) gösterilirken, gerçek URL farklı. Linklerin nereye yönlendirdiğine dikkat edin, önce kontrol edin."
-    },
+    // {
+    //     "image": "resimler/resim24.png",
+    //     "correct": "phishing",
+    //     "explanation": "Bankanız limit değişikliklerini SMS üzerinden onaylatmaz. Görünürde doğru domain (akbank.com.tr) gösterilirken, gerçek URL farklı. Linklerin nereye yönlendirdiğine dikkat edin, önce kontrol edin."
+    // },
     {
         "image": "resimler/resim25.png",
         "correct": "phishing",

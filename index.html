@@ -1,75 +1,224 @@
-<!-- index.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishing Tespit Testi</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="container">
-        <!-- Başlangıç Ekranı -->
-        <div id="start-screen" class="screen">
-            <h1>🕵️ Phishing Tespit Testi</h1>
-            <div class="rules">
-                <h2>Test Kuralları</h2>
-                <ul>
-                    <li>Her resmi dikkatlice inceleyin</li>
-                    <li>Phishing mi yoksa gerçek mi olduğuna karar verin</li>
-                    <li>Her sorudan sonra açıklamayı görüntüleyebilirsiniz</li>
-                    <li>Test sonunda detaylı bir değerlendirme alacaksınız</li>
-                </ul>
-            </div>
-            <button id="start-btn" class="btn">Teste Başla</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050810" />
+
+    <title>Phishing Tespit Testi | Altay</title>
+    <meta
+      name="description"
+      content="Altay Takımı'nın hazırladığı phishing tespit testi. 30 gerçek e-posta örneği üzerinden kimlik avı saldırılarını ayırt etmeyi öğrenin."
+    />
+
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Altay Takımı" />
+    <meta property="og:title" content="Phishing Tespit Testi | Altay" />
+    <meta
+      property="og:description"
+      content="30 gerçek e-posta örneği üzerinden kimlik avı saldırılarını ayırt etmeyi öğrenin."
+    />
+    <meta property="og:locale" content="tr_TR" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="backdrop" aria-hidden="true">
+      <div class="grid-layer"></div>
+      <div class="glow glow-a"></div>
+      <div class="glow glow-b"></div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="https://siberaltay.org/">
+        <img src="altay-logo.png" alt="" width="36" height="36" />
+        <span class="brand-name">Altay</span>
+      </a>
+      <a class="back-link" href="https://siberaltay.org/">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M19 12H5m0 0 6 6m-6-6 6-6" />
+        </svg>
+        Ana siteye dön
+      </a>
+    </header>
+
+    <main class="container">
+      <!-- Başlangıç Ekranı -->
+      <section id="start-screen" class="screen">
+        <p class="eyebrow">Farkındalık Testi</p>
+        <h1>Phishing Tespit Testi</h1>
+        <p class="lede">
+          Otuz e-posta ekran görüntüsü, her açılışta karışık sırayla. Tek
+          yapmanız gereken her biri için karar vermek: kimlik avı mı, değil mi?
+        </p>
+
+        <div class="rules">
+          <p class="note">
+            Cevabınızın doğru olup olmadığını anında görürsünüz; açıklamayı
+            açarsanız o e-postayı ele veren detayı da okursunuz. Yanlış cevap
+            testi bitirmez. Acele etmeyin; mesele hızlı karar vermek değil,
+            doğru yere bakmak.
+          </p>
         </div>
 
-        <!-- Quiz Ekranı -->
-        <div id="quiz-screen" class="screen hidden">
-            <div class="progress-bar">
+        <div class="meta-row">
+          <div class="meta">
+            <span class="meta-value">30</span>
+            <span class="meta-label">Soru</span>
+          </div>
+          <div class="meta">
+            <span class="meta-value">~10</span>
+            <span class="meta-label">Dakika</span>
+          </div>
+          <div class="meta">
+            <span class="meta-value">Her seferinde</span>
+            <span class="meta-label">Karışık sıra</span>
+          </div>
+        </div>
+
+        <button id="start-btn" class="btn btn-primary">Teste Başla</button>
+      </section>
+
+      <!-- Quiz Ekranı -->
+      <section id="quiz-screen" class="screen quiz hidden">
+        <div class="quiz-layout">
+          <div class="image-frame">
+            <img id="question-image" src="" alt="İncelenecek e-posta ekran görüntüsü" />
+          </div>
+
+          <div class="quiz-rail">
+            <div class="rail-top">
+              <span class="question-count">
+                Soru <span id="current-question">1</span>
+                <span class="count-sep">/</span>
+                <span id="total-questions">0</span>
+              </span>
+              <div class="progress-bar">
                 <div id="progress" class="progress"></div>
+              </div>
             </div>
-            <div class="question-count">
-                Soru <span id="current-question">1</span>/<span id="total-questions">0</span>
+
+            <p class="rail-prompt">Bu e-posta kimlik avı mı?</p>
+
+            <div class="buttons">
+              <button id="phishing-btn" class="btn btn-choice">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" />
+                </svg>
+                Phishing
+              </button>
+              <button id="real-btn" class="btn btn-choice">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Gerçek
+              </button>
             </div>
-            <div class="question-container">
-                <img id="question-image" src="" alt="E-posta görüntüsü">
-                <div class="buttons">
-                    <button id="phishing-btn" class="btn">📵 Phishing</button>
-                    <button id="real-btn" class="btn">✅ Gerçek</button>
-                </div>
-                <div id="feedback" class="feedback hidden">
-                    <p id="feedback-text"></p>
-                    <button id="show-explanation-btn" class="btn">Açıklamayı Göster</button>
-                    <div id="explanation" class="explanation hidden"></div>
-                    <button id="next-btn" class="btn">Sonraki Soru</button>
-                </div>
+
+            <div id="feedback" class="feedback hidden">
+              <p id="feedback-text"></p>
+              <button id="show-explanation-btn" class="btn btn-ghost">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 16v-4m0-4h.01" />
+                </svg>
+                Açıklamayı göster
+              </button>
             </div>
+
+            <div class="rail-bottom">
+              <button id="next-btn" class="btn btn-primary hidden">
+                Sonraki Soru
+              </button>
+              <button id="restart-quiz-btn" class="btn btn-quiet">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 12a9 9 0 1 0 3-6.7L3 8m0 0V3m0 5h5" />
+                </svg>
+                Baştan başla
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sonuç Ekranı -->
+      <section id="result-screen" class="screen hidden">
+        <p class="eyebrow">Sonuç</p>
+        <h1>Test Tamamlandı</h1>
+
+        <div class="score">
+          <p class="score-value">
+            <span id="score">0</span><span class="score-sep">/</span><span id="total">0</span>
+          </p>
+          <div class="progress-bar">
+            <div id="score-progress" class="progress"></div>
+          </div>
         </div>
 
-        <!-- Sonuç Ekranı -->
-        <div id="result-screen" class="screen hidden">
-            <h1>🎉 Test Tamamlandı!</h1>
-            <div class="score">
-                <p>Puanınız: <span id="score">0</span>/<span id="total">0</span></p>
-                <div class="progress-bar">
-                    <div id="score-progress" class="progress"></div>
-                </div>
-            </div>
-            <div class="tips">
-                <h2>Önemli Güvenlik Tavsiyeleri</h2>
-                <ul>
-                    <li>E-posta adreslerini her zaman dikkatle kontrol edin</li>
-                    <li>Aciliyet bildiren mesajlara karşı temkinli olun</li>
-                    <li>Şüpheli bağlantılara tıklamadan önce URL'i kontrol edin</li>
-                    <li>Kişisel bilgilerinizi paylaşmadan önce iki kez düşünün</li>
-                </ul>
-            </div>
-            <button id="restart-btn" class="btn">Testi Yeniden Başlat</button>
+        <div class="tips">
+          <h2>Kendinizi korumak için</h2>
+          <ul class="marker-list">
+            <li>Gönderici adresini alan adına kadar okuyun; benzer yazımlar en sık kullanılan tuzaktır.</li>
+            <li>Aciliyet, tehdit veya ödül vaadi içeren mesajlara karşı temkinli olun.</li>
+            <li>Bağlantıya tıklamadan önce üzerine gelerek gerçek hedef adresi kontrol edin.</li>
+            <li>Kimlik bilgilerinizi hiçbir e-posta bağlantısı üzerinden girmeyin.</li>
+          </ul>
         </div>
+
+        <div class="result-actions">
+          <button id="restart-btn" class="btn btn-primary">Testi Yeniden Başlat</button>
+          <a class="btn btn-ghost" href="https://siberaltay.org/">Altay'a dön</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Altay Takımı</span>
+      <a
+        class="sibervatan"
+        href="https://www.sibervatan.org/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img src="sibervatan-beyaz.png" alt="Siber Vatan" />
+      </a>
+    </footer>
+
+    <!-- Açıklama penceresi -->
+    <div
+      id="explanation-modal"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="explanation-title"
+    >
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-card">
+        <div class="modal-head">
+          <p class="eyebrow">Açıklama</p>
+          <button id="explanation-close" class="modal-close" aria-label="Kapat">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <h2 id="explanation-title" class="modal-title">
+          Bu e-postayı ele veren detay
+        </h2>
+        <div id="explanation" class="explanation"></div>
+        <button class="btn btn-ghost modal-dismiss" data-close>Kapat</button>
+      </div>
     </div>
 
     <script src="js/questions.js"></script>
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>

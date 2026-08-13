@@ -183,11 +183,20 @@ body {
   box-shadow: 0 24px 60px -30px rgb(0 0 0 / 0.9);
 }
 
-/* Metin ağırlıklı ekranlar okunabilir genişlikte kalsın */
+/* Üç ekran da aynı kartı paylaşır: geçişte boyut değişmez.
+   Metin kartın içinde ortalanır, okunabilir genişlikte kalır. */
 #start-screen,
 #result-screen {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.screen-inner {
   width: 100%;
-  max-width: 780px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
